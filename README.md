@@ -1,6 +1,6 @@
 # 📝 To-Do List App
 
-A simple and lightweight To-Do List application built using **HTML, CSS, and JavaScript**.
+A simple and lightweight To-Do List application built using **HTML, CSS, and JavaScript**. 
 This app allows users to add, check, and delete tasks, with data stored in the browser using **localStorage**.
 
 ---
