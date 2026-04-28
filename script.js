@@ -1,6 +1,6 @@
 const inputBox=document.getElementById("input-box");
 const listContainer=document.getElementById("list-container");
-
+// connecting this todo web application with node.js along with express
 function addTask(){
 	if(inputBox.value === '')
 	{
