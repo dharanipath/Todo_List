@@ -1,5 +1,6 @@
 # 📝 To-Do List App
 
+adding backend to this application using node.js with express.js and providee login/sign up form before going to add tasks.
 A simple and lightweight To-Do List application built using **HTML, CSS, and JavaScript**. 
 This app allows users to add, check, and delete tasks, with data stored in the browser using **localStorage**.
 
