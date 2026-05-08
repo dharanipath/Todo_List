@@ -591,3 +591,67 @@ deleteBtn.onclick = () => {
 			showTask();
 		});
 }
+
+//-----------------FORGOT PASSWORD FUNCTION LOGIC---------------------
+
+function openModal() {
+    const modal = document.getElementById("resetModal");
+	modal.classList.add('active');
+	document.body.style.overflow = 'hidden'; // Prevent scrolling
+
+}
+
+function closeModal() {
+	const modal = document.getElementById('resetModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+    resetFormState();
+}
+
+function resetFormState() {
+    document.getElementById('resetForm').reset();
+    document.getElementById('successMessage').classList.remove('active');
+}
+
+//Forget Password Function with API
+function sendResetLink() {
+    const email = document.getElementById("resetEmail").value;
+	const resetBtn = document.getElementById('resetSubmitBtn');
+	const successMessage = document.getElementById('successMessage');
+    if (!email) {
+		errorMessage.textContent = '✗ Please enter your email address.';
+		errorMessage.classList.add('active');
+        return;
+    }
+	
+	//disable button show loading statte
+	resetBtn.disabled=true;
+	resetBtn.textContent='Sending...';
+	
+	
+    fetch("/users/forgot-password", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ email })
+    })
+        .then(res => res.json())
+        .then(data => {
+			console.log("Resent link sent:",data)
+			
+			errorMessage.classList.remove('active');
+            successMessage.classList.add('active');
+	       submitBtn.textContent = 'Send Reset Link';
+            closeModal();
+        })
+        .catch(err => {
+            console.error(err);
+			//show errro message
+			successMessage.classList.remove('active');
+            errorMessage.textContent = '✗ ' + (err.message || 'Failed to send reset link. Please try again.');
+            errorMessage.classList.add('active');
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send Reset Link';
+        });
+}
