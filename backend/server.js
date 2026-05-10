@@ -78,6 +78,7 @@ app.delete('/delete-multiple-tasks',(req,res) =>{
 
 app.post('/get-user',(req,res) => {
     const query = "SELECT * FROM users WHERE email = ? AND password = ?";
+    console.log("Fetching user with email:", req.body.email);
     db.query(query, [req.body.email, req.body.password],(err,results) => {
         if(err){
             console.log(err);

@@ -62,10 +62,10 @@
 					</i>
 				</div>
 				<!-- <a href="#" class="forgot">Forgot your password?</a> -->
-				<div class="forgot" onclick="openModal()" >Forgot Password?</div>
+				<div class="forgot" onclick="openResetModal()" >Forgot Password?</div>
 					<div id="resetModal" class="modal-overlay">
 						<div class="modal-content">
-							<button class="close-btn" onclick="closeModal()">&times;</button>
+							<button class="close-btn" onclick="closeResetModal()">&times;</button>
 							<h3>Reset Password</h3>
 							<p>Enter your email address and we'll send you a link to reset your password.</p>
 							<form id="resetForm">
@@ -74,8 +74,8 @@
 									<input type="email" id="resetEmail" placeholder="Enter your registered email" required>
 								</div>
 								<div class="modal-buttons">
-									<button type="submit" class="reset-btn">Send Reset Link</button>
-									<button type="button" class="cancel-btn" onclick="closeModal()">Cancel</button>
+									<button type="submit" class="modal-reset-btn">Send</button>
+									<button type="button" class="modal-cancel-btn" onclick="closeResetModal()">Cancel</button>
 								</div>
                		        </form>
 							<div class="success-message" id="successMessage">
@@ -87,7 +87,7 @@
 						</div>
 					</div>
 				</div>
-				<!-- <button type="button" class="main-btn" onclick="openModal()">Sign In</button> -->
+				<button type="button" class="main-btn" onclick="handleLogin(event)">Sign In</button>
 			</form>
 		</div>
 

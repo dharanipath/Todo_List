@@ -190,9 +190,13 @@ function updateDeleteButtonState() {
 function handleSignup(event) {
 	if (event) event.preventDefault();
 
-	const name = document.querySelector('.sign-up-container input[type="text"]').value.trim();
-	const email = document.querySelector('.sign-up-container input[type="email"]').value.trim();
+	// REPLACE the querySelector lines with:
+	const name = document.getElementById('signUpName').value.trim();
+	const email = document.getElementById('signUpEmail').value.trim();
 	const pass = document.getElementById('signUpPass').value.trim();
+	// const name = document.querySelector('.sign-up-container input[type="text"]').value.trim();
+	// const email = document.querySelector('.sign-up-container input[type="email"]').value.trim();
+	// const pass = document.getElementById('signUpPass').value.trim();
 
 	if (!name || !email || !pass) {
 		const form = document.querySelector('.sign-up-container');
