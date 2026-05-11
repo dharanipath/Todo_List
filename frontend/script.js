@@ -598,14 +598,14 @@ deleteBtn.onclick = () => {
 
 //-----------------FORGOT PASSWORD FUNCTION LOGIC---------------------
 
-function openModal() {
+function openResetModal() {
     const modal = document.getElementById("resetModal");
 	modal.classList.add('active');
 	document.body.style.overflow = 'hidden'; // Prevent scrolling
 
 }
 
-function closeModal() {
+function closeResetModal() {
 	const modal = document.getElementById('resetModal');
     modal.classList.remove('active');
     document.body.style.overflow = 'auto';

@@ -96,6 +96,7 @@
 .modal-form-group input {
     width: 100%;
     padding: 12px;
+    color: #000; 
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 14px;
@@ -155,6 +156,23 @@
 }
 
 .success-message.active {
+    display: block;
+    animation: slideUp 0.3s ease;
+}
+
+/* Error Message */
+.error-message {
+    display: none;
+    color: #dc3545;
+    font-size: 14px;
+    margin-top: 15px;
+    padding: 10px;
+    background: #f0f8f5;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.error-message.active {
     display: block;
     animation: slideUp 0.3s ease;
 }
