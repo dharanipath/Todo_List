@@ -69,7 +69,7 @@ async function handleLogin(event) {
     }
 
     try {
-        const response = await fetch("http://localhost:3000/get-user", {
+        const response = await fetch("https://todo-list-fa4t.onrender.com/get-user", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ email, password })
@@ -204,7 +204,7 @@ function handleSignup(event) {
 		setTimeout(() => form.classList.remove('error-shake'), 500);
 		return;
 	}
-	fetch("http://localhost:3000/save-user", {
+	fetch("https://todo-list-fa4t.onrender.com/save-user", {
 		method: "POST",
 		headers: { "Content-Type": "application/json" },
 		body: JSON.stringify({ name : name, email: email, password: pass }),
@@ -307,7 +307,7 @@ function addTask() {
 
 	if (!inputBox.value.trim()) return;
 
-	fetch("http://localhost:3000/save-task", {
+	fetch("https://todo-list-fa4t.onrender.com/save-task", {
 		method: "POST",
 		headers: { "Content-Type": "application/json" },
 		body: JSON.stringify({ task_name: inputBox.value, user_id: userId }),
@@ -332,7 +332,7 @@ function showTask() {
 	}
 	console.log("Fetching tasks for user ID:", userId);
 
-	fetch(`http://localhost:3000/get-tasks?user_id=${userId}`, { 
+	fetch(`https://todo-list-fa4t.onrender.com/get-tasks?user_id=${userId}`, { 
 		method: "GET" ,
 		headers: { "Content-Type": "application/json" },
 	})
@@ -407,7 +407,7 @@ function editTask(id, currentName) {
 	document.getElementById("saveEdit").onclick = function () {
 		const updatedValue = document.getElementById("editInput").value;
 
-		fetch("http://localhost:3000/update-task", {
+		fetch("https://todo-list-fa4t.onrender.com/update-task", {
 			method: "PUT",
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify({ id: id, task_name: updatedValue }),
@@ -433,7 +433,7 @@ function deleteTask(id) {
 }
 
 document.getElementById("confirmDelete").onclick = function () {
-	fetch("http://localhost:3000/delete-task", {
+	fetch("https://todo-list-fa4t.onrender.com/delete-task", {
 		method: "DELETE",
 		headers: { "Content-Type": "application/json" },
 		body: JSON.stringify({ id: deleteId }),
@@ -579,7 +579,7 @@ deleteBtn.onclick = () => {
 
 	if (!confirm(`Delete ${selected.length} tasks?`)) return;
 
-	fetch("http://localhost:3000/delete-multiple-tasks", {
+	fetch("https://todo-list-fa4t.onrender.com/delete-multiple-tasks", {
 		method: "DELETE",
 		headers: { "Content-Type": "application/json" },
 		body: JSON.stringify({ ids: selected }),
@@ -633,7 +633,7 @@ function sendResetLink() {
 	resetBtn.textContent='Sending...';
 	
 	
-    fetch("/users/forgot-password", {
+    fetch("https://todo-list-fa4t.onrender.com/users/forgot-password", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
